@@ -1,0 +1,22 @@
+header {
+    background-color: black;
+    color: #FFF;
+    ul {
+        display: flex;
+        li {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            a {
+                color: #FFF;
+                padding: 10px;
+                &.active{
+
+                }
+                &:hover {
+
+                }
+            }
+        }
+    }
+}
