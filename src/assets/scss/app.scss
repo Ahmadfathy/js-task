@@ -1,62 +1,43 @@
-*, *:before, *:after{
-    box-sizing: border-box;
-}
+@import './base';
 
-html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    text-size-adjust: none;
+a, a:hover {
+    text-decoration: none;
 }
-
-footer, header, nav, section, main{
-    display: block;
-}
-
-body{
-    line-height: 1;
-}
-
-ol, ul{
-    list-style: none;
-}
-
-blockquote, q{
-    quotes: none;
-}
-
-blockquote:before, blockquote:after, q:before, q:after{
-    content: '';
-    content: none;
-}
-
-table{
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-input{
-    -webkit-appearance: none;
-    border-radius: 0;
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
 
 .container {
     margin-left: auto;
     margin-right: auto;
-    max-width: 1320px;
-    padding-left: 30px;
-    padding-right: 30px;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    @media #{$sm} {
+        padding-left: 10px;
+        padding-right: 10px;
+        max-width: 720px;
+    }
+
+    @media #{$md} {
+        padding-left: 10px;
+        padding-right: 10px;
+        max-width: 960px;
+    }
+
+    @media #{$lg} {
+        padding-left: 10px;
+        padding-right: 10px;
+        max-width: 1140px;
+    }
+
+    @media #{$xl} {
+        padding-left: 10px;
+        padding-right: 10px;
+        max-width: 1320px;
+    }
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: $main_font;
 }
 a{
     color: blueviolet;
@@ -65,5 +46,140 @@ img {
     max-width: 100%
 }
 
-
+@import './base';
 @import './header';
+@import './aside';
+@import './products';
+
+.page_banner {
+
+    .bg-md{
+        display: none;
+    }
+    .bg-sm{
+        display: block;
+    }
+    
+    @media #{$md} {
+        .bg-md{
+            display: block;
+        }
+    
+        .bg-sm{
+            display: none;
+        }
+    }
+
+    position: relative;
+
+    img {
+
+    }
+    .page_banner_title {
+
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+
+        @media #{$md} {
+            justify-content: space-around;
+            flex-direction: row;
+        }
+        
+        @media #{$md} {
+            max-width: 60%;
+        }
+
+        .page_title {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+    
+            @media #{$md} {
+                justify-content: space-around;
+                flex-direction: row;
+            }
+            
+            h4 {
+                font-size: 20px;
+                font-weight: 500;
+                line-height: 30px;
+                color: #DFDFDF;
+                text-shadow: 0px 4px 29px #000000;
+                margin-bottom: 10px;
+    
+                @media #{$md} {
+                    font-size: 35px;
+                    margin-bottom: 0px;
+                }
+            }
+            p {
+                @media #{$md} {
+                    font-size: 20px;
+                    line-height: 30px;
+                    font-weight: 200;
+                }
+                color: #FFF;
+                font-size: 14px;
+                line-height: 21px;
+                font-weight: 300;
+            }
+        }
+    }
+}
+
+.products_banner {
+    position: relative;
+
+    @media #{$md} {
+        margin-top: 50px;
+    }
+
+    img {}
+
+    .product_title {
+
+        position: absolute;
+        left: 20px;
+        top: 10px;
+
+        @media #{$md} {
+            left: 40px;
+            top: 20px;
+        }
+
+        h4{
+            color: #FFF;
+            font-size: 13.4548px;
+
+            @media #{$md} {
+                font-weight: 400;
+                font-size: 54.2228px;
+            }
+        }
+        h3{
+            color: #1BC732;
+            font-weight: 700;
+            font-size: 18.6954px;
+
+            @media #{$md} {
+                font-weight: 700;
+                font-size: 75.3425px;
+            }
+        }
+
+    }
+}
+
+.content_wrapper {
+    margin-top: 62px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

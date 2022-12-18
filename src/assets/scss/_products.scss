@@ -1,0 +1,173 @@
+@import './base';
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    .product{
+        width: 48%;
+        margin-bottom: 37px;
+        background: #FFFFFF;
+        border: 1px solid #E9E9E9;
+        border-radius: 5px;
+        padding: 14px;
+
+        @media #{$md} {
+            width: 24%;
+        }
+
+        .top_part{
+            position: relative;
+            .img_box{
+                padding: 20px 10px;
+                a {
+                    img {
+                        max-width: 100%;
+                    }
+                }
+            }
+            .promotion_percentage{
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 31px;
+                width: 58px;
+                text-align: center;
+                line-height: 31px;
+                color: #FFFFFF;
+                font-weight: 500;
+                font-size: 16px;
+                border-radius: 0px 5px 0 5px;
+
+                &.silver{
+                    background-color: #AEB3BE;
+                }
+                &.bronze{
+                    background-color: #B89784;
+                }
+                &.gold{
+                    background-color: #E0BF62;
+                }
+            }
+            ul.icons{
+                position: absolute;
+                right: 0px;
+                top: 0px;
+                li {
+                    margin-bottom: 16px;
+                    a {
+                        img {
+                            width: 23px;
+                        }
+                    }
+                }
+            }
+        }
+        .middle_part {
+            .product_title{
+                height: 98px;
+                a {
+                    font-size: 16px;
+                    line-height: 20px;
+                    display: block;
+                    color: #3F3F3F;
+                    font-weight: 350;
+
+                    &:hover {
+
+                    }
+                }
+            }
+            .price_rate {
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
+                flex-wrap: nowrap;
+
+                .price {
+                    .main_price{
+                        font-weight: 500;
+                        font-size: 18px;
+                        line-height: 20px;
+                        color: #37A446;
+                        display: block;
+                        margin-bottom: 5px;
+                    }
+                    .save_price{
+                        color: #3F3F3F;
+                        font-size: 13px;
+                    }
+                }
+                .rate{
+                    .rate_score {
+                        img {
+                            width: 12px;
+                        }
+                        .rate_score_num{
+                            font-size: 13px;
+                            font-weight: 500;
+                            color: #EEC337;
+                        }
+                    }
+                    .rate_total{
+                        color: #3F3F3F;
+                        font-weight: 400;
+                        font-size: 11px;
+                    }
+                }
+            }
+        }
+        a.add_to_cart{
+            color: #686868;
+            background: #FFFFFF;
+            border: 1.8px solid #A0D7A8;
+            border-radius: 5px;
+            height: 54px;
+            line-height: 54px;
+            text-align: center;
+            display: block;
+            text-decoration: none;
+            margin-top: 25px;
+            margin-bottom: 14px;
+
+            &:hover{
+
+            }
+        }
+    }
+}
+
+.paging {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 100px;
+
+    li {
+        background: #FFFFFF;
+        margin: 0 10px;
+        a {
+            border: 1px solid #DFE3E8;
+            border-radius: 4px;
+            color: #212B36;
+            display: block;
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
+            text-align: center;
+
+            &.active {
+                background-color: #919EAB;
+            }
+
+            &:hover{
+
+            }
+            img {
+
+            }
+        }
+    }
+}

@@ -1,0 +1,172 @@
+@import './base';
+
+aside {
+    display: none;
+
+    @media #{$md} {
+        display: block;
+        margin-right: 50px;
+    }
+
+    .filter_wrapper {
+        background: #F8F8F8;
+        padding: 45px;
+        min-width: 360px;
+
+        .filter_title{
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 23px;
+            color: #686868;
+            margin-bottom: 27px;
+        }
+
+        .filter_search{
+            position: relative;
+            input {
+                height: 49px;
+                line-height: 49px;
+                padding: 0 20px 0 45px;
+                background: #FFFFFF;
+                border: 1px solid #E9E9E9;
+                border-radius: 25px;
+                display: block;
+                color: #B6B4BA;
+                width: 100%;
+
+                &::placeholder {
+                    color: #B6B4BA;
+                    font-weight: 400;
+                    font-size: 16px;
+                }
+                &:focus{
+
+                }
+            }
+            button {
+                position: absolute;
+                left: 10px;
+                top: 30%;
+                background-color: transparent;
+                border: none;
+
+                &:hover,
+                &:focus,
+                &:active{
+                    outline: none;
+                    outline: 0px;
+                    border: none;
+                    box-shadow: none;
+                }
+                img {
+
+                }
+            }
+        }
+
+        .Fulfilled{
+            margin: 28px 0;
+        }
+
+        .filter_widget{
+            margin-bottom: 28px;
+            .widget_title {
+                height: 39px;
+                line-height: 39px;
+                background: #FFFFFF;
+                box-shadow: 0px 4px 4px rgba(115, 115, 115, 0.05);
+                border-radius: 5px;
+                padding-left: 13px;
+                padding-right: 13px;
+                position: relative;
+                z-index: 2;
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+
+                span {
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 24px;
+                    color: #3F3F3F;
+                    display: block;
+                    line-height: 39px;
+                }
+                img {
+                    height: 10px;
+                    width: 16px;
+                    display: block;
+                    margin-top: 15px;
+                }
+            }
+            .widget_dropdown {
+                padding: 35px 16px 16px;
+                height: 240px;
+                background: #FFFFFF;
+                box-shadow: 0px 4px 4px rgba(115, 115, 115, 0.05);
+                border-radius: 5px;
+                position: relative;
+                z-index: 1;
+                margin-top: -5px;
+            }
+        }
+
+        .form__radio{
+
+            margin-bottom: 15px;
+
+            input[type="radio"] {
+                position: relative;
+                display: none;
+
+                &::after{
+
+                }
+                &::before{
+
+                }
+            }
+
+            label{
+                padding-left: 30px;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 21px;
+                color: #686868;
+                position: relative;
+                cursor: pointer;
+
+                .form_radio_button{
+                    height: 18px;
+                    width: 18px;
+                    border: 2px solid #B6B4BA;
+                    border-radius: 3px;
+                    display: inline-block;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+
+                    &::after{
+                        content: "";
+                        display: block;
+                        height: 1.3rem;
+                        width: 1.3rem;
+                        border-radius: 50%;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        background-color: #55c57a;
+                        opacity: 0;
+                        transition: opacity 0.2s;
+                    }
+                }
+            }
+
+            input[type="radio"]:checked ~ label .form_radio_button::after {
+                opacity: 1;
+            }
+        }
+
+    }
+}

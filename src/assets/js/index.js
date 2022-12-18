@@ -37,27 +37,27 @@ http.onload = function() {
                             ''
                         }
                     ">
-                        ${item.promotionPercentage}
+                        ${item.promotionPercentage} %
                     </span>
 
                     <ul class="icons">
                         <li>
                             <a href="javascript:void(0)">
                                 ${item.isFavorite === true ? 
-                                    '<img src="./assets/images/icon_fav_2.png" alt=""/>' :
-                                    '<img src="./assets/images/icon_fav_1.png" alt=""/>'
+                                    '<img src="./assets/images/icon-fav-2.png" alt=""/>' :
+                                    '<img src="./assets/images/icon-fav-1.png" alt=""/>'
                                 }
                                 
                             </a>
                         </li>
                         <li>
                             <a href="javascript:void(0)">
-                                <img src="./assets/images/icon_share.png" alt="">
+                                <img src="./assets/images/icon-share.png" alt="">
                             </a>
                         </li>
                         <li>
                             <a href="javascript:void(0)">
-                                <img src="./assets/images/jp_icon.png" alt="">
+                                <img src="./assets/images/jp-icon.png" alt="">
                             </a>
                         </li>
                     </ul>
@@ -69,11 +69,11 @@ http.onload = function() {
                     <div class="price_rate">
                         <div class="price">
                             <h5 class="main_price">${item.sellPrice}</h5>
-                            <span class="save_price">(Save ${item.priceSaved} EGP)</span>
+                            <span class="save_price">(Save ${item.priceSaved})</span>
                         </div>
                         <div class="rate">
                             <span class="rate_score">
-                                <img src="./assets/images/icon_rate_star.png" alt="">
+                                <img src="./assets/images/icon-rate-star.png" alt="">
                                 <span class="rate_score_num">${item.rate}</span>
                             </span>
                             <span class="rate_total">(${item.rateCount})</span>
@@ -81,7 +81,7 @@ http.onload = function() {
                     </div>
                 </div>
                 ${item.enableAddToCart === true ? 
-                    '<a href="javascript:void(0)">Add To Cart</a>' :
+                    '<a class="add_to_cart" href="javascript:void(0)">Add To Cart</a>' :
                     '<a class="add_to_cart" href="javascript:void(0)" disabled>Not Available</a>'
                 }
             </div>
