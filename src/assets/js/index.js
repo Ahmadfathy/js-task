@@ -93,3 +93,17 @@ http.onload = function() {
 
     }
 }
+
+const btn_selected_sort = document.getElementById('btn_selected_sort');
+const sort_by_dropdown = document.getElementById('sort_by_dropdown');
+
+btn_selected_sort.addEventListener("click", function(event) {
+    sort_by_dropdown.classList.toggle('clicked');
+});
+
+const filter = document.getElementById('filter');
+const btn_aside_trigger = document.getElementById('btn_aside_trigger');
+
+btn_aside_trigger.addEventListener("click", function(event) {
+    filter.classList.toggle('is_visible');
+});

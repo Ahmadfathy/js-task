@@ -133,12 +133,14 @@
                     <div class="form__radio">
                         <input type="radio" name="shipping_by" id="Fulfilled">
                         <label for="Fulfilled">
+                            <span class="form_radio_button"></span>
                             Fulfilled by JustPiece
                         </label>
                     </div>
                     <div class="form__radio">
                         <input type="radio" name="shipping_by" id="onSale">
                         <label for="onSale">
+                            <span class="form_radio_button"></span>
                             On Sale
                         </label>
                     </div>
@@ -288,7 +290,7 @@
             </div>
         </aside>
         <section class="products_wrapper">
-            <!-- <div class="upper">
+            <div class="upper">
                 <div class="bc_rs">
                     <ul class="breadcrumbs">
                         <li><a href="javascript:void(0)">Home</a></li>
@@ -302,18 +304,28 @@
                 <div class="sort_by">
                     <label>Sort by</label>
                     <div class="sort_by_Box">
-                        <span>Recommended</span>
-                        <div class="sort_by_dropdown">
+                        <div class="selected_sort" id="btn_selected_sort">
+                            <span>Recommended</span>
+                            <div class="drop_arrow">
+                                <img src="./assets/images/arrow-down-sort-by.png" alt=""/>
+                            </div>
+                        </div>
+                        <div class="sort_by_dropdown" id="sort_by_dropdown">
                             <ul>
-                                <li>Recommended</li>
+                                <li class="active">Recommended</li>
                                 <li>Recently Added</li>
                                 <li>Price Low to High</li>
                                 <li>Price High to Low</li>
                             </ul>
                         </div>
                     </div>
+                    <div class="aside_trigger" id="btn_aside_trigger">
+                        <a href="javascript:void(0)">
+                            <img src="./assets/images/icon-filter-trigger.png" alt="">
+                        </a>
+                    </div>
                 </div>
-            </div> -->
+            </div>
             <div class="products" id="products"></div>
             <ul class="paging">
                 <li><a href="javascript:void(0)" class="active"><img src="./assets/images/icon-paging-arrow-left.png"></a></li>
