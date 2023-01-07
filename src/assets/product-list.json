@@ -97,7 +97,7 @@
   },
   {
     "title": "Bosch Electric Spray Gun 440w",
-    "isFulfilled": true,
+    "isFulfilled": false,
     "rate": 10,
     "rateCount": 300,
     "promotionPercentage": 14,
@@ -177,7 +177,7 @@
   },
   {
     "title": "Full Face gasket size 4 inch class 150 Thickness 3mm",
-    "isFulfilled": true,
+    "isFulfilled": false,
     "rate": 10,
     "rateCount": 300,
     "promotionPercentage": 39,

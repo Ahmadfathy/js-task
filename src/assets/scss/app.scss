@@ -1,6 +1,7 @@
 @import './base';
 
-a, a:hover {
+a,
+a:hover {
     text-decoration: none;
 }
 
@@ -39,9 +40,11 @@ a, a:hover {
 body {
     font-family: $main_font;
 }
-a{
+
+a {
     color: blueviolet;
 }
+
 img {
     max-width: 100%
 }
@@ -53,28 +56,26 @@ img {
 
 .page_banner {
 
-    .bg-md{
+    .bg-md {
         display: none;
     }
-    .bg-sm{
+
+    .bg-sm {
         display: block;
     }
-    
+
     @media #{$md} {
-        .bg-md{
+        .bg-md {
             display: block;
         }
-    
-        .bg-sm{
+
+        .bg-sm {
             display: none;
         }
     }
 
     position: relative;
 
-    img {
-
-    }
     .page_banner_title {
 
         position: absolute;
@@ -90,7 +91,7 @@ img {
             justify-content: space-around;
             flex-direction: row;
         }
-        
+
         @media #{$md} {
             max-width: 60%;
         }
@@ -100,12 +101,12 @@ img {
             display: flex;
             flex-direction: column;
             text-align: center;
-    
+
             @media #{$md} {
                 justify-content: space-around;
                 flex-direction: row;
             }
-            
+
             h4 {
                 font-size: 20px;
                 font-weight: 500;
@@ -113,18 +114,20 @@ img {
                 color: #DFDFDF;
                 text-shadow: 0px 4px 29px #000000;
                 margin-bottom: 10px;
-    
+
                 @media #{$md} {
                     font-size: 35px;
                     margin-bottom: 0px;
                 }
             }
+
             p {
                 @media #{$md} {
                     font-size: 20px;
                     line-height: 30px;
                     font-weight: 200;
                 }
+
                 color: #FFF;
                 font-size: 14px;
                 line-height: 21px;
@@ -142,8 +145,6 @@ img {
         margin-top: 50px;
     }
 
-    img {}
-
     .product_title {
 
         position: absolute;
@@ -155,7 +156,7 @@ img {
             top: 20px;
         }
 
-        h4{
+        h4 {
             color: #FFF;
             font-size: 13.4548px;
 
@@ -164,7 +165,8 @@ img {
                 font-size: 54.2228px;
             }
         }
-        h3{
+
+        h3 {
             color: #1BC732;
             font-weight: 700;
             font-size: 18.6954px;
@@ -183,4 +185,12 @@ img {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.hide, .not, .hidden {
+    display: none;
+}
+
+.show {
+    display: block;
 }

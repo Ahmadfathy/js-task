@@ -6,17 +6,17 @@ http.open('get', './assets/product-list.json', true);
 
 http.send();
 
-http.onload = function() {
-    if(this.readyState == 4 && this.status == 200){
+http.onload = function () {
+    if (this.readyState == 4 && this.status == 200) {
 
         let products = JSON.parse(this.responseText);
 
         let output = '';
 
-        for(let item of products){
+        for (let item of products) {
             output += `
 
-            <div class="product">
+            <div class="product" ${item.isFulfilled === true ? "data-filter='Fulfilled' " : "data-filter='onSale' "}>
                 <div class="top_part">
                     <div class="img_box">
                         <a href="${item.absoluteUrl}">
@@ -24,18 +24,18 @@ http.onload = function() {
                         </a>
                     </div>
                     <span class="promotion_percentage
-                        ${item.promotionPercentageColor === 'silver' ? 
-                            'silver':
-                            ''
-                        }
-                        ${item.promotionPercentageColor === 'gold' ? 
-                            'gold' :
-                            ''
-                        }
-                        ${item.promotionPercentageColor === 'bronze' ? 
-                            'bronze' :
-                            ''
-                        }
+                        ${item.promotionPercentageColor === 'silver' ?
+                    'silver' :
+                    ''
+                }
+                        ${item.promotionPercentageColor === 'gold' ?
+                    'gold' :
+                    ''
+                }
+                        ${item.promotionPercentageColor === 'bronze' ?
+                    'bronze' :
+                    ''
+                }
                     ">
                         ${item.promotionPercentage} %
                     </span>
@@ -43,10 +43,10 @@ http.onload = function() {
                     <ul class="icons">
                         <li>
                             <a href="javascript:void(0)">
-                                ${item.isFavorite === true ? 
-                                    '<img src="./assets/images/icon-fav-2.png" alt=""/>' :
-                                    '<img src="./assets/images/icon-fav-1.png" alt=""/>'
-                                }
+                                ${item.isFavorite === true ?
+                    '<img src="./assets/images/icon-fav-2.png" alt=""/>' :
+                    '<img src="./assets/images/icon-fav-1.png" alt=""/>'
+                }
                                 
                             </a>
                         </li>
@@ -80,7 +80,7 @@ http.onload = function() {
                         </div>
                     </div>
                 </div>
-                ${item.enableAddToCart === true ? 
+                ${item.enableAddToCart === true ?
                     '<a class="add_to_cart" href="javascript:void(0)">Add To Cart</a>' :
                     '<a class="add_to_cart" href="javascript:void(0)" disabled>Not Available</a>'
                 }
@@ -97,13 +97,47 @@ http.onload = function() {
 const btn_selected_sort = document.getElementById('btn_selected_sort');
 const sort_by_dropdown = document.getElementById('sort_by_dropdown');
 
-btn_selected_sort.addEventListener("click", function(event) {
+btn_selected_sort.addEventListener("click", function (event) {
     sort_by_dropdown.classList.toggle('clicked');
 });
 
 const filter = document.getElementById('filter');
 const btn_aside_trigger = document.getElementById('btn_aside_trigger');
 
-btn_aside_trigger.addEventListener("click", function(event) {
+btn_aside_trigger.addEventListener("click", function (event) {
     filter.classList.toggle('is_visible');
 });
+
+
+/*------------------------------------
+    Start Filter By Fulfilled
+------------------------------------*/
+const fulfilled_filter = document.querySelectorAll('.fulfilled_filter');
+fulfilled_filter.forEach(filter => {
+
+    filter.addEventListener('change', function () {
+
+        let selectedFilter = filter.getAttribute('id');
+        let itemsToHide = document.querySelectorAll(`.products .product:not([data-filter='${selectedFilter}'])`);
+        let itemsToShow = document.querySelectorAll(`.products [data-filter='${selectedFilter}']`);
+
+        if (selectedFilter == 'all') {
+            itemsToHide = [];
+            itemsToShow = document.querySelectorAll(`.products .product:not([data-filter='!${selectedFilter}'])`);
+        }
+
+        itemsToHide.forEach(el => {
+            el.classList.add('hide');
+            el.classList.remove('show');
+        });
+
+        itemsToShow.forEach(el => {
+            el.classList.remove('hide');
+            el.classList.add('show');
+        });
+
+    });
+});
+/*------------------------------------
+    //End Filter By Fulfilled
+------------------------------------*/
