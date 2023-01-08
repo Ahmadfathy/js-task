@@ -16,7 +16,7 @@ http.onload = function () {
         for (let item of products) {
             output += `
 
-            <div class="product" ${item.isFulfilled === true ? "data-filter='Fulfilled' " : "data-filter='onSale' "}>
+            <div class="product" data-filter="${item.isFulfilled === true ? 'Fulfilled' : 'onSale'} ${item.promotionPercentageColor}">
                 <div class="top_part">
                     <div class="img_box">
                         <a href="${item.absoluteUrl}">
@@ -64,7 +64,7 @@ http.onload = function () {
                 </div>
                 <div class="middle_part">
                     <h5 class="product_title">
-                        <a href="${item.absoluteUrl}" title="${item.title}" alt="${item.title}">${item.title}</a>
+                        <a href="${item.absoluteUrl}" title="${item.title}" alt="${item.title}" class="product_title_link">${item.title}</a>
                     </h5>
                     <div class="price_rate">
                         <div class="price">
@@ -112,18 +112,18 @@ btn_aside_trigger.addEventListener("click", function (event) {
 /*------------------------------------
     Start Filter By Fulfilled
 ------------------------------------*/
-const fulfilled_filter = document.querySelectorAll('.fulfilled_filter');
-fulfilled_filter.forEach(filter => {
+const global_filter = document.querySelectorAll('.global_filter');
+global_filter.forEach(filter => {
 
     filter.addEventListener('change', function () {
 
         let selectedFilter = filter.getAttribute('id');
-        let itemsToHide = document.querySelectorAll(`.products .product:not([data-filter='${selectedFilter}'])`);
-        let itemsToShow = document.querySelectorAll(`.products [data-filter='${selectedFilter}']`);
+        let itemsToHide = document.querySelectorAll(`.products .product.show:not([data-filter*='${selectedFilter}'])`);
+        let itemsToShow = document.querySelectorAll(`.products [data-filter*='${selectedFilter}']`);
 
         if (selectedFilter == 'all') {
             itemsToHide = [];
-            itemsToShow = document.querySelectorAll(`.products .product:not([data-filter='!${selectedFilter}'])`);
+            itemsToShow = document.querySelectorAll(`.products .product.show:not([data-filter*='!${selectedFilter}'])`);
         }
 
         itemsToHide.forEach(el => {
@@ -140,4 +140,32 @@ fulfilled_filter.forEach(filter => {
 });
 /*------------------------------------
     //End Filter By Fulfilled
+------------------------------------*/
+
+
+/*------------------------------------
+    Start Search
+------------------------------------*/
+function Search() {
+    let product = document.querySelectorAll('.product')
+    let search_query = document.getElementById("search").value;
+    for (var i = 0; i < product.length; i++) {
+        if (product[i].innerText.toLowerCase()
+            .includes(search_query.toLowerCase())) {
+            product[i].classList.remove("hide");
+        } else {
+            product[i].classList.add("hide");
+        }
+    }
+}
+
+let Timer;
+let Interval = 50; // Half a second
+let searchInput = document.getElementById('search');
+searchInput.addEventListener('keyup', () => {
+    clearTimeout(Timer);
+    Timer = setTimeout(Search, Interval);
+});
+/*------------------------------------
+    //End Search
 ------------------------------------*/

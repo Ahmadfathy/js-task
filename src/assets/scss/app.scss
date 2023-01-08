@@ -185,10 +185,14 @@ img {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    .products_wrapper{
+        width: 100%;
+    }
 }
 
-.hide, .not, .hidden {
-    display: none;
+.hide {
+    display: none !important;
 }
 
 .show {

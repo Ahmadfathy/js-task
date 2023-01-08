@@ -71,9 +71,6 @@ aside {
                     font-weight: 400;
                     font-size: 16px;
                 }
-                &:focus{
-
-                }
             }
             button {
                 position: absolute;
@@ -89,9 +86,6 @@ aside {
                     outline: 0px;
                     border: none;
                     box-shadow: none;
-                }
-                img {
-
                 }
             }
         }
@@ -133,7 +127,7 @@ aside {
             }
             .widget_dropdown {
                 padding: 35px 16px 16px;
-                height: 240px;
+                max-height: 240px;
                 background: #FFFFFF;
                 box-shadow: 0px 4px 4px rgba(115, 115, 115, 0.05);
                 border-radius: 5px;
@@ -143,20 +137,13 @@ aside {
             }
         }
 
-        .form__radio{
+        .form__radio__checkbox{
 
             margin-bottom: 15px;
 
-            input[type="radio"] {
+            input[type="radio"], input[type="checkbox"] {
                 position: relative;
                 display: none;
-
-                &::after{
-
-                }
-                &::before{
-
-                }
             }
 
             label{
@@ -168,7 +155,7 @@ aside {
                 position: relative;
                 cursor: pointer;
 
-                .form_radio_button{
+                .form_radio_checkbox_button{
                     height: 18px;
                     width: 18px;
                     border: 2px solid #B6B4BA;
@@ -210,9 +197,12 @@ aside {
                 }
             }
 
-            input[type="radio"]:checked ~ label .form_radio_button{
-                &::after, &::before{
-                    opacity: 1;
+            input[type="radio"]:checked ~ label,
+            input[type="checkbox"]:checked ~ label{
+                .form_radio_checkbox_button{
+                    &::after, &::before{
+                        opacity: 1;
+                    }
                 }
             }
         }
